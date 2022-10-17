@@ -1,0 +1,47 @@
+import pygame
+from sys import exit
+
+pygame.init()
+screen=pygame.display.set_mode((1600,1500))
+pygame.display.set_caption('One track mind')
+clock=pygame.time.Clock()
+
+text=pygame.font.Font(None,50)
+background_surface=pygame.image.load('background-min.png').convert_alpha()
+enemy_surface=pygame.image.load(enemy).convert_alpha()
+enemy_rct=enemy_surface.get_rect(midbottom=(600,300))
+
+score_surface=text.render('score',false,(64,64,64))
+score_rct=score_surface.get_rect(center = (800,50))
+
+player_surface=pygame.image.load(player).convert_alpha()
+player.rct=player_surface.get_rect(midbottom=(80,250))
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+        #if event.type == pygame.MOUSEMOTION:
+         #   if player_rct.collidepoint(event.pos):
+                
+
+    screen.blit(background_surface,(0,0))
+    pygame.draw.rect(screen,scor_rct)
+    pygame.draw.rect(screen,scor_rct,11)
+
+    screen.blit(score_surface,score_rct)
+    
+    enemy_rct_pos-=4
+    if enemy_rct.right<=0:
+        snail_rct.left=1600
+    screen.blit(enemy_surface,enemy_rct)
+    player_rct.left+=1
+    screen.blit(player_surface,(80,250))
+
+    #if player_rct.colliderect(enemy_rct):
+  
+    
+    pygame.display.update()
+    clock.tick(60)
+
